@@ -32,10 +32,13 @@ function App() {
   };
 
   const clearInput = (useCallback = () => {
-    setValue({
-      login: "",
-      email: "",
-    });
+    setValue(
+      {
+        login: "",
+        email: "",
+      },
+      [value]
+    );
   });
 
   const handleSubmit = (e) => {
@@ -46,7 +49,7 @@ function App() {
   const { login, email } = value;
   return (
     <div className="App">
-      <MyContext.Provider value="Hello">
+      <MyContext.Provider value="Hello Context">
         <Clock />
         <Input
           handleChange={handleChange}
